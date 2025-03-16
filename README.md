@@ -9,7 +9,7 @@ EnderCarryOn is a PaperMC plugin developed based on the CarryOn mod. It implemen
 
 ## Dependencies
 
-- This plugin requires [EnderCore](https://github.com/Endkind/EnderCore/releases/) (version 0.x.x) as a dependency.  
+- This plugin requires [EnderCore](https://github.com/Endkind/EnderCore/releases/) (version 0.2.0 or newer) as a dependency.  
   You can obtain the current version of EnderCore either via [GitHub](https://github.com/Endkind/EnderCore/releases/) or from the [Papermc Hangar](https://hangar.papermc.io/Endkind_Ender/EnderCore/versions).
 - This plugin requires a texture pack to function correctly. However, the plugin already enforces the texture pack for players by default.
 - Requires at least Minecraft version 1.21.4.
