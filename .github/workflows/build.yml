@@ -1,0 +1,87 @@
+name: Build EnderCore
+
+on:
+  push:
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Setup Gradle Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle/wrapper/gradle-wrapper.properties') }}
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Run Tests
+        run: ./gradlew clean test
+        env:
+          USERNAME: endkind
+          PASSWORD: ${{ secrets.PACKAGES_TOKEN }}
+
+  build:
+    name: Build Plugin and Upload Artifact
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Setup Gradle Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle/wrapper/gradle-wrapper.properties') }}
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Zip Resourcepack
+        run: cd resourcepack && zip -r ../resourcepack.zip .
+
+      - name: Compute SHA-1 Hash and Update Config
+        run: |
+          HASH=$(sha1sum resourcepack.zip | awk '{print $1}')
+          echo "Computed hash: $HASH"
+          sed -i "s/{hash_resourcepack}/$HASH/" src/main/resources/config.yml
+
+      - name: Build Plugin
+        run: ./gradlew build
+        env:
+          USERNAME: endkind
+          PASSWORD: ${{ secrets.PACKAGES_TOKEN }}
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: papermc-plugin
+          path: build/libs/*.jar
+
+      - name: Upload Resourcepack Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resourcepack
+          path: resourcepack.zip

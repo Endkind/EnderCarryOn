@@ -1,0 +1,10 @@
+name: EnderCarryOn
+version: '0.0.1'
+main: net.endkind.enderCarryOn.EnderCarryOn
+api-version: '1.21'
+prefix: EnderCarryOn
+authors: [ Endkind Ender ]
+description: This Plugin implements the proven CarryOn Mod as a plugin.
+website: https://www.endkind.net
+depend:
+  - EnderCore
