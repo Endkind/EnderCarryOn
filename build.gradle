@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'net.endkind'
-version = '0.1.0'
+version = System.getenv('VERSION') ?: 'development'
 
 repositories {
     mavenCentral()

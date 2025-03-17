@@ -2,6 +2,8 @@ name: Build EnderCore
 
 on:
   push:
+    tags:
+      - "v*"
 
 jobs:
   test:
@@ -42,6 +44,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Extract version from tag (remove 'v')
+        run: |
+          VERSION=${GITHUB_REF##*/}
+          VERSION=$(echo $VERSION | sed 's/^v//')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
       - name: Setup Java 21
         uses: actions/setup-java@v4
         with:
@@ -67,6 +75,9 @@ jobs:
           HASH=$(sha1sum resourcepack.zip | awk '{print $1}')
           echo "Computed hash: $HASH"
           sed -i "s/{hash_resourcepack}/$HASH/" src/main/resources/config.yml
+          TAG=${GITHUB_REF#refs/tags/}
+          sed -i "s/{tag}/$TAG/" src/main/resources/config.yml
+          sed -i "s/development/$VERSION/" src/main/resources/config.yml
 
       - name: Build Plugin
         run: ./gradlew build

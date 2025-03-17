@@ -7,5 +7,5 @@ prefix:
 
 resource_pack:
   use: true
-  url: "https://github.com/Endkind/EnderCarryOn/releases/download/v0.0.1/resourcepack.zip"
+  url: "https://github.com/Endkind/EnderCarryOn/releases/download/{tag}/resourcepack.zip"
   hash: "{hash_resourcepack}"  # A 40 character hexadecimal and lowercase SHA-1 digest of the resource pack file.

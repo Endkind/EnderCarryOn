@@ -1,5 +1,5 @@
 name: EnderCarryOn
-version: '0.1.0'
+version: 'development'
 main: net.endkind.enderCarryOn.EnderCarryOn
 api-version: '1.21'
 prefix: EnderCarryOn
