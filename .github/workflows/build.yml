@@ -77,7 +77,7 @@ jobs:
           sed -i "s/{hash_resourcepack}/$HASH/" src/main/resources/config.yml
           TAG=${GITHUB_REF#refs/tags/}
           sed -i "s/{tag}/$TAG/" src/main/resources/config.yml
-          sed -i "s/development/$VERSION/" src/main/resources/config.yml
+          sed -i "s/development/$VERSION/" src/main/resources/plugin.yml
 
       - name: Build Plugin
         run: ./gradlew build
