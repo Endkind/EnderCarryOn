@@ -42,9 +42,9 @@ public class OnPlayerInteractListener implements Listener {
 
             ItemMeta itemMeta = chestItem.getItemMeta();
 
-            itemMeta.setItemModel(Keys.CHEST.key);
+            itemMeta.setItemModel(Keys.CHEST);
             Multimap<Attribute, AttributeModifier> itemAttributeModifiers = itemMeta.getAttributeModifiers();
-            itemMeta.getPersistentDataContainer().set(Keys.CARRY.key, PersistentDataType.BYTE, (byte) 1);
+            itemMeta.getPersistentDataContainer().set(Keys.CARRY, PersistentDataType.BYTE, (byte) 1);
 
             if (itemAttributeModifiers != null && itemAttributeModifiers.containsKey(Attribute.MOVEMENT_SPEED)) {
                 ArrayListMultimap<Attribute, AttributeModifier> mutableModifiers = ArrayListMultimap.create(itemAttributeModifiers);

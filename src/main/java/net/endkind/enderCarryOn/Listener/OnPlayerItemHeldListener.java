@@ -11,7 +11,7 @@ public class OnPlayerItemHeldListener implements Listener {
     @EventHandler
     public void onPlayerItemHeld(PlayerItemHeldEvent event) {
         ItemStack currentItem = event.getPlayer().getInventory().getItem(event.getPreviousSlot());
-        if (currentItem != null && currentItem.hasItemMeta() && currentItem.getItemMeta().getPersistentDataContainer().has(Keys.CARRY.key, PersistentDataType.BYTE)) {
+        if (currentItem != null && currentItem.hasItemMeta() && currentItem.getItemMeta().getPersistentDataContainer().has(Keys.CARRY, PersistentDataType.BYTE)) {
             event.setCancelled(true);
         }
     }

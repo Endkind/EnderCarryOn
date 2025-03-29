@@ -11,7 +11,7 @@ public class OnPlayerDropItemListener implements Listener {
     @EventHandler
     public void onPlayerDropItem(PlayerDropItemEvent event) {
         ItemStack droppedItem = event.getItemDrop().getItemStack();
-        if (droppedItem.hasItemMeta() && droppedItem.getItemMeta().getPersistentDataContainer().has(Keys.CARRY.key, PersistentDataType.BYTE)) {
+        if (droppedItem.hasItemMeta() && droppedItem.getItemMeta().getPersistentDataContainer().has(Keys.CARRY, PersistentDataType.BYTE)) {
             event.setCancelled(true);
         }
     }

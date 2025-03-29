@@ -11,7 +11,7 @@ public class OnInventoryClickListener implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         if (event.getCurrentItem() != null
                 && event.getCurrentItem().hasItemMeta()
-                && event.getCurrentItem().getItemMeta().getPersistentDataContainer().has(Keys.CARRY.key, PersistentDataType.BYTE)) {
+                && event.getCurrentItem().getItemMeta().getPersistentDataContainer().has(Keys.CARRY, PersistentDataType.BYTE)) {
             event.setCancelled(true);
         }
     }

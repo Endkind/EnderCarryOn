@@ -12,13 +12,13 @@ public class OnInventoryDragListener implements Listener {
     public void onInventoryDrag(InventoryDragEvent event) {
         if (event.getOldCursor() != null
                 && event.getOldCursor().hasItemMeta()
-                && event.getOldCursor().getItemMeta().getPersistentDataContainer().has(Keys.CARRY.key, PersistentDataType.BYTE)) {
+                && event.getOldCursor().getItemMeta().getPersistentDataContainer().has(Keys.CARRY, PersistentDataType.BYTE)) {
             event.setCancelled(true);
             return;
         }
         for (ItemStack item : event.getNewItems().values()) {
             if (item != null && item.hasItemMeta()
-                    && item.getItemMeta().getPersistentDataContainer().has(Keys.CARRY.key, PersistentDataType.BYTE)) {
+                    && item.getItemMeta().getPersistentDataContainer().has(Keys.CARRY, PersistentDataType.BYTE)) {
                 event.setCancelled(true);
                 break;
             }
