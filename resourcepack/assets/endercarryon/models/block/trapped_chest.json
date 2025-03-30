@@ -1,9 +1,7 @@
 {
-	"credit": "",
-	"parent": "minecraft:item/template_chest",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "endercarryon:block/chest"
+		"0": "endercarryon:block/trapped_chest"
 	},
 	"elements": [
 		{
@@ -67,6 +65,10 @@
 		"firstperson_lefthand": {
 			"translation": [-9, 1.5, 0],
 			"scale": [0.8, 0.8, 0.8]
+		},
+		"gui": {
+			"rotation": [30, -135, 0],
+			"scale": [0.625, 0.625, 0.625]
 		}
 	},
 	"groups": [
