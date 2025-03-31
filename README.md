@@ -4,7 +4,7 @@ EnderCarryOn is a PaperMC plugin developed based on the CarryOn mod. It implemen
 
 ## Features
 
-- Carrying chests (more features will be added with updates)
+- Carrying Chest, Trapped Chest, Ender Chest and Barrel (more features will be added with updates)
 - Restrictions on movement and inventory interactions when a chest is being carried
 
 ## Dependencies
@@ -12,7 +12,7 @@ EnderCarryOn is a PaperMC plugin developed based on the CarryOn mod. It implemen
 - This plugin requires [EnderCore](https://github.com/Endkind/EnderCore/releases/) (version 0.2.0 or newer) as a dependency.  
   You can obtain the current version of EnderCore either via [GitHub](https://github.com/Endkind/EnderCore/releases/) or from the [Papermc Hangar](https://hangar.papermc.io/Endkind_Ender/EnderCore/versions).
 - This plugin requires a texture pack to function correctly. However, the plugin already enforces the texture pack for players by default.
-- Requires at least Minecraft version 1.21.4.
+- Requires at least Minecraft version 1.21.3.
 
 ## Configuration Notes
 
